@@ -2,51 +2,51 @@
 //约定：给后台页面添加 /admin ；
 
 //前台页面
-module.exports.getIndexPage = (req, res) => {
+exports.getIndexPage = (req, res) => {
     res.render('index.ejs');
 }
-module.exports.getDetailPage = (req, res) => {
+exports.getDetailPage = (req, res) => {
     res.render('detail.ejs');
 }
-module.exports.getListPage = (req, res) => {
+exports.getListPage = (req, res) => {
     res.render('list.ejs');
 }
 
 
 //后台页面
-module.exports.getAdminIndexPage = (req, res) => {
+exports.getAdminIndexPage = (req, res) => {
     res.render('admin/index.ejs');
 }
-module.exports.getAdminCategoriesPage = (req, res) => {
+exports.getAdminCategoriesPage = (req, res) => {
     res.render('admin/categories.ejs');
 }
-module.exports.getAdminCommentsPage = (req, res) => {
+exports.getAdminCommentsPage = (req, res) => {
     res.render('admin/comments.ejs');
 }
-module.exports.getAdminLoginPage = (req, res) => {
+exports.getAdminLoginPage = (req, res) => {
     res.render('admin/login.ejs');
 }
-module.exports.getAdminNavMenusPage = (req, res) => {
+exports.getAdminNavMenusPage = (req, res) => {
     res.render('admin/nav-menus.ejs');
 }
-module.exports.getAdminPasswordResetPage = (req, res) => {
+exports.getAdminPasswordResetPage = (req, res) => {
     res.render('admin/password-reset.ejs');
 }
-module.exports.getAdminPostAddPage = (req, res) => {
+exports.getAdminPostAddPage = (req, res) => {
     res.render('admin/post-add.ejs');
 }
-module.exports.getAdminPostsPage = (req, res) => {
+exports.getAdminPostsPage = (req, res) => {
     res.render('admin/posts.ejs');
 }
-module.exports.getAdminProfilePage = (req, res) => {
+exports.getAdminProfilePage = (req, res) => {
     res.render('admin/profile.ejs');
 }
-module.exports.getAdminSettingsPage = (req, res) => {
+exports.getAdminSettingsPage = (req, res) => {
     res.render('admin/settings.ejs');
 }
-module.exports.getAdminSlidesPage = (req, res) => {
+exports.getAdminSlidesPage = (req, res) => {
     res.render('admin/slides.ejs');
 }
-module.exports.getAdminUsersPage = (req, res) => {
+exports.getAdminUsersPage = (req, res) => {
     res.render('admin/users.ejs');
 }
