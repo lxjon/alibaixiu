@@ -1,4 +1,5 @@
 //这个页面用于返回用户所请求的页面
+const querystring = require('querystring');
 //约定：给后台页面添加 /admin ；
 
 //前台页面
@@ -15,7 +16,26 @@ exports.getListPage = (req, res) => {
 
 //后台页面
 exports.getAdminIndexPage = (req, res) => {
-    res.render('admin/index.ejs');
+    // var myCookie = querystring.parse(req.headers.cookie);
+    // if(myCookie.islogin && myCookie.islogin == 'true'){
+
+    //     res.render('admin/index.ejs');
+    // }else{
+    //     //重定向
+    //     res.writeHead(301,{
+    //         'Location':'/admin/login'
+    //     });
+    //     res.end();
+    // }
+    // if(req.session.islogin && req.session.islogin == 'true'){
+        res.render('admin/index.ejs');
+    // }else{
+    //     // 重定向
+    //     res.writeHead(301,{
+    //         'Location':'/admin/login'
+    //     });
+    //     res.end();
+    // }
 }
 exports.getAdminCategoriesPage = (req, res) => {
     res.render('admin/categories.ejs');

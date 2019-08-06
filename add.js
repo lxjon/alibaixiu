@@ -2,6 +2,8 @@
 const express = require('express');
 const fs = require('fs');
 const router = require('./router.js');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 //创建服务器
 const app = express();
 
@@ -10,6 +12,18 @@ app.listen(8080, () => {
     console.log('http://127.0.0.1:8080');
 });
 
+app.use(session({
+    secret: 'my-alibaixiu-35',
+    resave: false,
+    saveUninitialized: true
+  }));
+
+//配置body-parser中间件
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+ 
+// parse application/json
+app.use(bodyParser.json());
 
 
 // 托管静态资源页面
@@ -41,4 +55,17 @@ app.set('views', __dirname + '/views');
 //     res.render('admin/password-reset');
 // });
 //让app使用router进行管理
+app.use(function(req,res,next){
+    if(req.session.islogin && req.session.islogin == 'true' || req.url == '/admin/login' || req.url.indexOf('/admin') == -1){
+        next();
+    }else{
+        // 重定向
+        // res.writeHead(301,{
+        //     'Location':'/admin/login'
+        // });
+        // res.end();
+        res.redirect('/admin/login');
+    }
+})
+
 app.use(router);

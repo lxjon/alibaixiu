@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const pagesController = require('./controllers/pagesController.js');
+const userController = require('./controllers/userController.js');
 
 
 //配置路由
@@ -34,6 +35,8 @@ router.get('/', pagesController.getIndexPage)
       .get('/admin/profile', pagesController.getAdminProfilePage)
       .get('/admin/settings', pagesController.getAdminSettingsPage)
       .get('/admin/slides', pagesController.getAdminSlidesPage)
-      .get('/admin/users', pagesController.getAdminUsersPage);
+      .get('/admin/users', pagesController.getAdminUsersPage)
+
+      .post('/login',userController.login);
 //暴露路由
 module.exports = router;
