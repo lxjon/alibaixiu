@@ -16,12 +16,11 @@ app.use(session({
     secret: 'my-alibaixiu-35',
     resave: false,
     saveUninitialized: true
-  }));
+}));
 
 //配置body-parser中间件
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
- 
 // parse application/json
 app.use(bodyParser.json());
 
@@ -54,11 +53,10 @@ app.set('views', __dirname + '/views');
 // app.get('/admin/password-reset',(req,res)=>{
 //     res.render('admin/password-reset');
 // });
-//让app使用router进行管理
-app.use(function(req,res,next){
-    if(req.session.islogin && req.session.islogin == 'true' || req.url == '/admin/login' || req.url.indexOf('/admin') == -1){
+app.use(function (req, res, next) {
+    if (req.session.islogin && req.session.islogin == 'true' || req.url == '/admin/login' || req.url.indexOf('/admin') == -1) {
         next();
-    }else{
+    } else {
         // 重定向
         // res.writeHead(301,{
         //     'Location':'/admin/login'
@@ -68,4 +66,5 @@ app.use(function(req,res,next){
     }
 })
 
+//让app使用router进行管理
 app.use(router);
