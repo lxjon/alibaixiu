@@ -12,5 +12,5 @@ $(function(){
          var html = template('postListTemp',result);
          $('tbody').html(html);
     }
-    });
+    });                              
 });
