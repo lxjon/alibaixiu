@@ -4,6 +4,7 @@ const router = express.Router();
 const pagesController = require('./controllers/pagesController.js');
 const userController = require('./controllers/userController.js');
 const postsController = require('./controllers/postsController.js');
+const cateController = require('./controllers/cateController.js');
 
 
 //配置路由
@@ -40,5 +41,6 @@ router.get('/', pagesController.getIndexPage)
 
       .post('/login',userController.login)
       .get('/getAllPost',postsController.getAllPost)
+      .get('/getAllCate',cateController.getAllCate)
 //暴露路由
 module.exports = router;
