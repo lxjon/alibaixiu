@@ -5,7 +5,7 @@ const pagesController = require('./controllers/pagesController.js');
 const userController = require('./controllers/userController.js');
 const postsController = require('./controllers/postsController.js');
 const cateController = require('./controllers/cateController.js');
-
+const uploadController = require('./controllers/uploadController.js');
 
 //配置路由
 
@@ -16,9 +16,9 @@ router.get('/', pagesController.getIndexPage)
       .get('/detail', pagesController.getDetailPage)
 
 
-// router.get('/list', (req, res) => {
-//     pagesController.getListPage(req, res);
-// });
+      // router.get('/list', (req, res) => {
+      //     pagesController.getListPage(req, res);
+      // });
 
       .get('/list', pagesController.getListPage)
 
@@ -39,8 +39,13 @@ router.get('/', pagesController.getIndexPage)
       .get('/admin/slides', pagesController.getAdminSlidesPage)
       .get('/admin/users', pagesController.getAdminUsersPage)
 
-      .post('/login',userController.login)
-      .get('/getAllPost',postsController.getAllPost)
-      .get('/getAllCate',cateController.getAllCate)
+      .post('/login', userController.login)
+      .get('/getAllPost', postsController.getAllPost)
+      .post('/addPost',postsController.addPost)
+
+      .get('/getAllCate', cateController.getAllCate)
+
+      //文件上传
+      .post('/uploadFile', uploadController.uploadFile);
 //暴露路由
 module.exports = router;

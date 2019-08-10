@@ -22,3 +22,28 @@ postsModel.getAllPost(obj,(err,data1)=>{
      }
 });
 }
+
+
+// 文章的新增
+exports.addPost = (req,res)=>{
+    // 接收参数
+    var obj = req.body;  //body 是什么 ????
+    obj.views = 0;
+    obj.likes = 0;
+    obj.id = null;
+    obj.user_id = req.session.currentUser.id;
+    postsModel.addPost(obj,(err)=>{
+    if(err){
+        console.log(err)
+        res.json({
+            code:400,
+            msg:'新增失败'
+        })
+    }else{
+        res.json({
+            code:200,
+            msg:'新增成功'
+        })
+    }
+    });
+}

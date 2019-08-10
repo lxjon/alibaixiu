@@ -25,7 +25,14 @@ exports.getAllPost = (obj,callback)=>{
         let  sql = `select count(*) as cnt
         from posts
         join users on posts.user_id = users.id
-        join categories on posts.category_id = categories.id`
+        join categories on posts.category_id = categories.id
+        where 1=1`
+        if(obj.cate && obj.cata != 'all'){//有没有传递分类数据
+            sql += ` and category_id = ${obj.cate}`
+        }
+        if(obj.status && obj.status != 'all'){
+            sql += ` and posts.status = '${obj.status}'`
+        }
 
         myconn.query(sql,(err2,resu2)=>{
             if(err2){
@@ -37,4 +44,17 @@ exports.getAllPost = (obj,callback)=>{
         //    callback(null,result);
        }
       });         
+}
+
+
+// 文章的新增
+exports.addPost = (obj,callback)=>{
+   let sql = `insert into posts set ?`;
+   myconn.query(sql,obj,(err,result)=>{
+    if(err){
+        callback(err);
+    }else{
+        callback(null);
+    }
+   });
 }

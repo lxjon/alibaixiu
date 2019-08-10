@@ -12,10 +12,14 @@ $(function(){
         menuPosts.addClass('in').attr('aria-expanded','true');
         // menuPosts.parent().find('.collapsed').removeClass('collapsed');
         $('#coll1').removeClass('collapsed');
+
+        // menuSettings.addClass('collapsed').attr('aria-expanded','false');
+        // $('#coll2').removeClass('in');
     }
     if(routerName == 'nav-menus' || routerName == 'slides' || routerName == 'settings'){
         menuSettings.addClass('in').attr('aria-expanded','true');
         $('#coll2').removeClass('collapsed');
     }
+    
     $('#'+routerName).addClass('active');
 });
